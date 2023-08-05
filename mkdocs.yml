@@ -22,13 +22,7 @@ markdown_extensions:
   - admonition
   - pymdownx.details
   - pymdownx.superfences
-  - fontawesome_markdown
   - attr_list
   - md_in_html
   - pymdownx.tabbed:
       alternate_style: true 
-
-extra:
-  social:
-    - icon: fontawesome/brands/github
-      link: https://github.com/algoraid
