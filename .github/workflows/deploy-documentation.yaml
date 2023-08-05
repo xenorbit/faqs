@@ -1,0 +1,49 @@
+name: Documentation
+
+on:
+#   push:
+#     branches: [ main ]
+#     paths:
+#       - 'documentation/**'
+#       - 'mkdocs.yml'
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: [ubuntu-latest]
+    steps:
+      - name: Checkout main branch
+        uses: actions/checkout@v3
+
+      #- name: Checkout lfs
+      #  run: git lfs pull
+
+      - name: Build mkdocs image
+        run: docker build -f Containerfile . -t mkdocs
+
+      - name: Generate documentation with mkdocs
+        run: docker run --rm  -v "$PWD:$PWD" -w "$PWD" mkdocs:latest build -v
+
+      - name: Upload documentation artifacts - mkdocs
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: site/
+          retention-days: 1
+
+  deploy:
+    needs: build
+
+    permissions:
+      pages: write
+      id-token: write
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    runs-on: [ubuntu-latest]
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v1.2.8

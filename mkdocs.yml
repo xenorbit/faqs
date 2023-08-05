@@ -1,0 +1,34 @@
+site_name: MaShare FAQs
+docs_dir: documentation
+repo_url: https://github.com/masharecorp/docs
+
+theme:
+  name: material
+  features:
+    - navigation.sections
+    - navigation.path
+    - navigation.indexes
+    - navigation.footer
+
+plugins:
+  - table-reader
+  - search
+  - autolinks
+  - drawio_file
+  - mermaid2:
+      version: 9.3.0
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - fontawesome_markdown
+  - attr_list
+  - md_in_html
+  - pymdownx.tabbed:
+      alternate_style: true 
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/masharecorp
