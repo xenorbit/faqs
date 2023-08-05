@@ -1,6 +1,6 @@
-site_name: MaShare FAQs
+site_name: Algoraid
 docs_dir: documentation
-repo_url: https://github.com/masharecorp/docs
+repo_url: https://github.com/algoraid/docs
 
 theme:
   name: material
@@ -31,4 +31,4 @@ markdown_extensions:
 extra:
   social:
     - icon: fontawesome/brands/github
-      link: https://github.com/masharecorp
+      link: https://github.com/algoraid
