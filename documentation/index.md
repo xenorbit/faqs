@@ -1,4 +1,4 @@
-# Home
+# Technology FAQ's
 
 
 | Section    | Description                                     |
