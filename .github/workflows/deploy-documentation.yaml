@@ -19,7 +19,7 @@ jobs:
       #  run: git lfs pull
 
       - name: Build mkdocs image
-        run: docker build -f Containerfile . -t mkdocs
+        run: docker build -f Dockerfile . -t mkdocs
 
       - name: Generate documentation with mkdocs
         run: docker run --rm  -v "$PWD:$PWD" -w "$PWD" mkdocs:latest build -v
